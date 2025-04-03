@@ -1,5 +1,6 @@
 import express, { json, urlencoded } from "express";
-import productRoutes from "./routes/products/index.js";
+import productsRoutes from "./routes/products/index.js";
+import ordersRoutes from "./routes/orders/index.js";
 import authRoutes from "./routes/auth/index.js";
 
 // Load environment variables early
@@ -20,8 +21,9 @@ app.get("/", (req, res) => {
   res.json({ status: "API is running" });
 });
 
-app.use("/products", productRoutes);
+app.use("/products", productsRoutes);
 app.use("/auth", authRoutes);
+app.use("/orders", ordersRoutes);
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
